@@ -1,0 +1,20 @@
+{
+  "name": "sistema-ef-casa-do-educador",
+  "version": "1.0.0",
+  "description": "scripts utilizados no GAS para auxiliar na planilha da Casa do Educador do Ensino Fundamental",
+  "homepage": "https://github.com/citesj/sistema-ef-casa-do-educador#readme",
+  "bugs": {
+    "url": "https://github.com/citesj/sistema-ef-casa-do-educador/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citesj/sistema-ef-casa-do-educador.git"
+  },
+  "license": "ISC",
+  "author": "Eduardo Henrique Lisboa Silva",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
