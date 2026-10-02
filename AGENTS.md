@@ -31,7 +31,7 @@ Formato: instruções técnicas para agentes (Copilot, Claude Code, Cursor, etc.
   - processarListaFrequencia: linha de filtros nas linhas 1..3; `INTERVALO_DEPENDENTES: 'E2:E3'`
   - processarStatusFrequencia: `PRIMEIRA_LINHA_DADOS: 2`, `COLUNAS_STATUS` contém colunas 6,8,10,... (pares específicos até 70)
   - generateCsv: linha inicial = 5, colunas 1..5, variáveis em B1/B2/B3
-  - createRelatorioFaltasPdf: START_ROW = 7, START_COL = 1, NUM_COLS = 12
+  - createRelatorioFaltasPdf: START_ROW = 7, START_COL = 1, NUM_COLS = 15
 
 ## Funções-chave (nome → efeito)
 - onOpen() (main.js): adiciona menu
