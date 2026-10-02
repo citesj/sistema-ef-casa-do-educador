@@ -11,7 +11,9 @@
  */
 const CONFIG_CACHE = {
   DADOS: {
-    COLUNAS_STATUS: new Set([6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]),
+    COLUNAS_STATUS: new Set(
+      Array.from({ length: 44 }, (_, indice) => 6 + indice * 2)
+    ),
     PRIMEIRA_LINHA_DADOS: 2,
     STATUS_MAP: new Map([
       ['P', 4.0],
