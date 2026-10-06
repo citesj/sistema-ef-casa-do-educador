@@ -9,20 +9,29 @@
  * @property {Set<string>} DADOS.MANUAL_STATUSES - Conjunto de status ('SA', 'CT') que exigem digitação manual da frequência.
  * @property {Set<number|string>} DADOS.CLEAR_VALUES - Valores que devem ser limpos da célula de frequência caso um status manual seja selecionado.
  */
+const QUANTIDADE_COLUNAS_STATUS = 44;
+const PRIMEIRA_COLUNA_STATUS = 6;
+const INTERVALO_COLUNAS_STATUS = 2;
+const PRIMEIRA_LINHA_DADOS = 2;
+const COLUNA_FREQUENCIA_RELATIVA = 1;
+const FREQUENCIA_PRESENCA = 4.0;
+const FREQUENCIA_ZERO = 0;
+
 const CONFIG_CACHE = {
   DADOS: {
-    COLUNAS_STATUS: new Set(
-      Array.from({ length: 44 }, (_, indice) => 6 + indice * 2)
-    ),
-    PRIMEIRA_LINHA_DADOS: 2,
+    COLUNAS_STATUS: new Set(Array.from({ length: QUANTIDADE_COLUNAS_STATUS }, (_, indice) => {
+      const coluna = PRIMEIRA_COLUNA_STATUS + indice * INTERVALO_COLUNAS_STATUS;
+      return coluna
+    })),
+    PRIMEIRA_LINHA_DADOS,
     STATUS_MAP: new Map([
-      ['P', 4.0],
-      ['X', 0],
-      ['F', 0],    
-      ['E', 0]
+      ['P', FREQUENCIA_PRESENCA],
+      ['X', FREQUENCIA_ZERO],
+      ['F', FREQUENCIA_ZERO],
+      ['E', FREQUENCIA_ZERO]
     ]),
     MANUAL_STATUSES: new Set(['SA', 'CT']),
-    CLEAR_VALUES: new Set([4.0, 0, ''])
+    CLEAR_VALUES: new Set([FREQUENCIA_PRESENCA, FREQUENCIA_ZERO, ''])
   }
 };
 
@@ -48,7 +57,7 @@ function processarStatusFrequencia(e) {
   }
 
   const statusValue = range.getValue();
-  const targetCell = e.source.getActiveSheet().getRange(row, col + 1);
+  const targetCell = e.source.getActiveSheet().getRange(row, col + COLUNA_FREQUENCIA_RELATIVA);
 
   
   if (config.STATUS_MAP.has(statusValue)) {
